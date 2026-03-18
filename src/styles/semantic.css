@@ -1,0 +1,61 @@
+:root{
+
+
+    /* ======BRAND======== */
+
+    --semantic-brand: var(--color-amber-600);
+    --semantic-brand-over: var(--color-amber-800);
+    --semantic-brand-soft: var(--color-amber-300);
+    --semantic-brand-soft-hover: var(--color-amber-4    00);
+
+    /* BACKGROUND */
+
+    --semantic-background: var(--color-gray-100); /* Fondo de toda la aplicacion*/
+    --semantic-surface: var(--color-gray-100);    /* Fondo de modales, cards, containers */
+    --semantic-surface-muted: var(--color-gray-100); /* Zonas secundarias, menos importancia */
+
+    /* TEXT  */
+
+    --semantic-text-primary: var(--color-gray-900) /* Color principal lectura, titulos, texto base del documento*/
+    --semantic-text-secondary: var(--color-gray-700) /* Texto menos dominante */
+    --semantic-text-muted: var(--color-gray-500) /* Texto deshabilitado por ejemplo */
+    --semantic-text-inverse: var(--color-gray-50) /* Texto invertido */
+
+    /* === BORDER === */
+
+    --semantic-border: var(--color-gray-400); /* Borde principal de todos los componentes */
+    --semantic-border-border: var(--color-gray-700); /* Bordes mas fuertes */
+
+    /* === FOCUS === */
+
+    --semantic-focus-ring: var(--color-primary-700);  
+    --semantic-focus-border: var(--color-primary-500);
+
+    /* === STATE === */
+
+    --semantic-sucess: var(--color-primary-950);
+    --semantic-warning: var(--color-tertiary-950);
+    --semantic-error: var(--color-secondary-950);
+
+    /* TYPOGRAPHY */
+
+    --semantic-font-size-display: var(--fs-xxl) /* Texto de alto impacto, protagonista */
+    --semantic-font-size-h1: var(--fs-lg);
+    --semantic-font-size-h2: var(--fs-md);
+    --semantic-font-size-h3: var(--fs-sm);
+    --semantic-font-size-body: var(--fs-xs);
+    --semantic-font-size-medium: var(--fs-xxs);
+    --semantic-font-size-small: var(--fs-xxxs);
+    --semantic-font-size-caption: var(--fs-xxxxs); /* Caption es texto auxiliar muy pequeno */
+
+    /* =========== FONT WEIGHT ================== */
+
+    --semantic-font-weight-heading: var(--font-weight-bold);
+    --semantic-font-weight-body: var(--font-weight-regular);
+    --semantic-font-weight-label: var(--font-weight-regular);
+
+    /* ============= DARK THEME ============= */
+
+    
+
+}

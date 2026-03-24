@@ -1,33 +1,40 @@
-export default function Input({
-    label,
-    type = "text",
-    ...props
-})
+export default function Input({    label,   type = "text",   ...props })
 {
      //Cuerpo de la función
     return(
         // Contenedor del input que se exporta con label, cuerpo y feedback message
         <div className="w-[320px]">
-            {/* Label */}
+        {/* Label */}
+        {label && (
             <label 
                 className="
                     block
-                    text-caption
+                    text-[8px]
                     mb-1
-                    text-text-primary
-                "
-                >
-                    {label}
+                    ">    
+                {label}
             </label>
 
-            {/* Contenedor del input */}
-            <div>
-                {/* Área Interactiva invisible de un input 48px */}
 
+        )}
+
+            
+
+            {/*===========================================*/}
+
+            {/* Contenedor del input */}
+            <div
+                className="
+                    relative
+                    h-12
+                    flex
+                    item-center
+                ">
+                {/* Área Interactiva invisible de un input 48px */}
                 <div 
                     className="
                         absolute
-                        insert-0
+                        inset-0
                     "
                 onMouseDown={(e) => { 
                     e.preventDefault();
@@ -38,7 +45,8 @@ export default function Input({
 
                 {/* Area visual del input */}
 
-                <div 
+                <input
+                    type={type}
                     className="
                         relative
                         w-full
@@ -58,7 +66,7 @@ export default function Input({
                     
                     >
                        
-                </div>
+                </input>
             </div>
         </div>
     )

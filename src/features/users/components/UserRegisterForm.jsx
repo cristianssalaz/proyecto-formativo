@@ -1,13 +1,21 @@
-import { Input, Button } from "@/shared";
+import { useState, useEffect } from "react";
+import { getDocumentTypes } from "@/features/users/services/selectService";
+
+import { Input, Button, DeleteCounter, DeleteEffect, DeleteCounter2, Select } from "@/shared";
 
 export default function UserRegisterForm(){
+
+    const [ documentTypes, setDocumentTypes] = useState([]);
+
+    useEffect(() => {
+        getDocumentTypes().then(setDocumentTypes);
+    },[]);
 
     // Handle
 
     const handleNameChange = (e) => {
         console.log("Nombre: ", e.target.value)
     }
-
     const handleEmailBlur = (e) => {
         console.log('Email: ', e.target.value)
     }
@@ -30,14 +38,19 @@ export default function UserRegisterForm(){
                     label="Nombre"
                     placeholder="Ingrese su nombre"
                     onChange={handleNameChange}
+
+                    
                     />
                     <Input 
                     label="Nombre"
                     placeholder="Ingrese su nombre"
+                    
+                    onBlur={() => console.log("input desenfocado - Cristian Salazar")}
                     />
                     <Input 
                     label="Nombre"
                     placeholder="Ingrese su nombre"
+        
                     />
                     <Input 
                     label="Nombre"
@@ -47,6 +60,7 @@ export default function UserRegisterForm(){
                     label="Telefono"
                     placeholder="Ingrese su telefono"
                     type="tel"
+                    onSelect={() => console.log("texto seleccionado - Cristian Salazar")}
                     />
                     <Input 
                     label="Correo"
@@ -65,6 +79,13 @@ export default function UserRegisterForm(){
                     type="number"
                     />
 
+                    <Select 
+                        label="Tipo de documento"
+                        name="documentType"
+                        options={documentTypes}
+                    />
+
+
                 {/* Actions */}
 
                 <div className="flex items-end justify-end gap-6">
@@ -80,15 +101,25 @@ export default function UserRegisterForm(){
                         size="md"
                     >
                         Guardar
+
+                    
                     </Button>
+
+                    {/*
+
+                    */}
+
+                    
+                    
                 </div>
 
-                </div>
+            </div>
+        </form>    
+        {/* <DeleteCounter />    */}
+        {/* uso del useEffect      */}
+        {/* <DeleteEffect />         */}
 
-                
-
-            </form>
-            
-        </div>
+        <DeleteCounter2 />
+    </div>
     )
 };

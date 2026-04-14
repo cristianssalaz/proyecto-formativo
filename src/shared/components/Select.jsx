@@ -1,6 +1,9 @@
 export default function Select({
     label,
     name,
+    error,
+    value,
+    onChange,
     options = [],
 }){   
     return(
@@ -13,6 +16,8 @@ export default function Select({
             
         <select
             name={name}
+            value={value}
+            onChange={onChange}
             className="
             w-full
             h-12
@@ -28,6 +33,10 @@ export default function Select({
                 </option>
             ))}
         </select>
+
+        {error && <p className='text-caption text-red-800 text-error' place-self-start>
+                {error}</p>}
+
         </div>
     )
 

@@ -1,53 +1,64 @@
-export default function Input({    label,   type = "text",   ...props })
-{
-     //Cuerpo de la función
+export default function Input({
+    label,
+    type = "text",
+    error,
+    ...props
+}){
+    //Curpo de la funcion 
     return(
-        // Contenedor del input que se exporta con label, cuerpo y feedback message
-        <div className="w-[320px]">
-        {/* Label */}
-        {label && (
+        //Contenedor del input que se exporta con label curpo y feedback message
+          <div className="w-[320px]">
+            {/* Label */ }
+
+         {label && (
+
             <label 
-                className="
+                className={
+                    `
                     block
                     text-[8px]
                     mb-1
-                    ">    
-                {label}
+                    place-self-start
+                    ${error ? "text-error" : "text-text-primary"}
+                `}
+            >
+                    {label}
             </label>
+         )}   
 
 
-        )}
-
-            
-
-            {/*===========================================*/}
-
-            {/* Contenedor del input */}
+            {/* contenedor del input */ }
             <div
                 className="
                     relative
                     h-12
                     flex
-                    item-center
-                ">
-                {/* Área Interactiva invisible de un input 48px */}
+                    items-center
+                " 
+            >
+
+                {/* Area interactiva invisible de un input 48px */ }
                 <div 
                     className="
                         absolute
                         inset-0
+
                     "
-                onMouseDown={(e) => { 
+                onMouseDown={(e) => {
                     e.preventDefault();
+                    
                     e.currentTarget.nextSibling.focus();
+
                 }}
-                >
-                </div>
+                />
+                {/*=====================================================*/ }    
 
-                {/* Area visual del input */}
 
-                <input
+                
+                {/*Area visual del input*/}
+                <input 
                     type={type}
-                    className="
+                    className={`
                         relative
                         w-full
                         h-12
@@ -56,18 +67,29 @@ export default function Input({    label,   type = "text",   ...props })
                         border-border
                         px-4
                         text-base
+                        
+                        hover:
+                        hover:border-2
+                        hover:border-focus-border
 
-                        focus: outline-none
-                        focus:ring-2
+                        focus:outline-none
+                        focus:ring-1
                         focus:ring-focus-ring
-                        focus:border-focus-border
-                    "
-                    {...props}
+                        ${error ? "border-red-700": "border border-border"}
                     
-                    >
-                       
-                </input>
+                        
+                        `}
+                    {...props}
+
+             />
+               
+
             </div>
-        </div>
+              {/*Feedback message */}
+              {error && <p className = "text-caption text-red-700 place-self-start">{error}</p>}
+
+
+          </div>
+
     )
 };

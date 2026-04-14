@@ -12,8 +12,8 @@ export default function Button({
     ...props //Propiedades adicionales (onClick, disable, ect)
 }) {
     const variants = {
-        primary: "bg-green text-brand border text-h1",
-        secondary: "bg-background border border-border text-text-inverse hover:bg-surface-muted"
+        primary: "bg-green text-brand border text-body hover:bg-surface-muted hover:text-text-inverse",
+        secondary: "bg-background border border-border text-text-primary hover:text-text-inverse"
     };
 
     const sizes = {

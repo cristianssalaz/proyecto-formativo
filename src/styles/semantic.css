@@ -19,7 +19,8 @@
     --semantic-text-primary: var(--color-gray-900) /* Color principal lectura, titulos, texto base del documento*/
     --semantic-text-secondary: var(--color-gray-700) /* Texto menos dominante */
     --semantic-text-muted: var(--color-gray-500) /* Texto deshabilitado por ejemplo */
-    --semantic-text-inverse: var(--color-gray-50) /* Texto invertido */
+       --semantic-text-inverse: var(--color-gray-50)/* Texto invertido */
+    --semantic-text-text-inverse: var(--color-blue-700) /* Texto invertido */
 
     /* === BORDER === */
 

@@ -36,55 +36,49 @@ export default function UserRegisterForm(){
 
                     <Input 
                     label="Nombre"
+                    name='userName'
                     placeholder="Ingrese su nombre"
-                    onChange={handleNameChange}
+                    onChange={handleNameChange}                    
+                    />
 
-                    
-                    />
                     <Input 
-                    label="Nombre"
-                    placeholder="Ingrese su nombre"
-                    
-                    onBlur={() => console.log("input desenfocado - Cristian Salazar")}
+                        type='email'
+                        name='userEmail'
+                        label="Correo"
+                        placeholder="Ingrese su correo"
                     />
-                    <Input 
-                    label="Nombre"
-                    placeholder="Ingrese su nombre"
-        
-                    />
-                    <Input 
-                    label="Nombre"
-                    placeholder="Ingrese su nombre"
-                    />
+
                     <Input 
                     label="Telefono"
+                    name='userPhone'
                     placeholder="Ingrese su telefono"
                     type="tel"
                     onSelect={() => console.log("texto seleccionado - Cristian Salazar")}
                     />
-                    <Input 
-                    label="Correo"
-                    placeholder="Ingrese su correo"
-                    type="email"
-                    onBlur={handleEmailBlur}
-                    />
-                    <Input 
-                    label="Contrasena"
-                    placeholder="Ingrese su contrasena"
-                    type='password'
-                    />
-                    <Input 
-                    label="Edad"
-                    placeholder="Ingrese su edad"
-                    type="number"
-                    />
 
                     <Select 
                         label="Tipo de documento"
-                        name="documentType"
+                        name="userdocumentType"
                         options={documentTypes}
+                    />  
+
+                    <Input
+
+                    label="Numero de documento"
+                    name='userdocumentNumber'
+                    placeholder="Ingrese su numero de documento"
+        
+                    
+                    />
+                    <Input 
+                    label="Contrasena"
+                    name='userDocumentNumber'
+                    placeholder="Ingrese su contrasena"
+                    type='password'
                     />
 
+
+                    
 
                 {/* Actions */}
 

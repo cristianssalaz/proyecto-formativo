@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 
 import { getDocumentTypes } from "@/features/users/services/selectService.js"
 
-import { Input, Button,  Select } from "@/shared";
+import { Input, Button,  Select, Checkbox } from "@/shared";
 
 import { userSchema } from "../schemas/userSchema";
 
@@ -17,6 +17,11 @@ export default function UserRegisterForm() {
         userDocumentType: "",
         userDocumentNumber: "",
         userPassword: "",
+
+        //flags booleanos
+        isStaff:false,
+        isActive: true,
+        isSuperUser: false,
 
     });
 
@@ -36,14 +41,14 @@ export default function UserRegisterForm() {
      */
     const handleChange = (e) => {
         // Se obtiene el nombre del campo y su valor 
-        const { name, value } = e.target;
+        const { name, value, type, checked } = e.target;
 
         setFormData((prev) => ({
             // Se copian los valores anteriores del estado
             ...prev,
 
             // Se actualiza unicamente lo que cambio
-            [name] : value,
+            [name]: type === "checkbox" ? checked : value,
         }));
     };
 
@@ -158,7 +163,29 @@ export default function UserRegisterForm() {
                     error = {errors.userPassword}
                 />
 
-               
+                <Checkbox
+                    id='isStaff'
+                    name='isStaff'
+                    label='Es staff'
+                    checked={formData.isStaff}
+                    onChange={handleChange}
+                />
+
+                <Checkbox
+                    id='isActive'
+                    name='isActive'
+                    label='Es active'
+                    checked={formData.isActive}
+                    onChange={handleChange}
+                />
+
+                <Checkbox
+                    id='isSuperUser'
+                    name='isSuperUser'
+                    label='Es superuser'
+                    checked={formData.isSuperUser}
+                    onChange={handleChange}
+                />
 
 
                 {/* Actions */}
@@ -190,3 +217,6 @@ export default function UserRegisterForm() {
         </div>
     );
 }
+
+
+//primero lo creo en shared componentes, luego le coloco unos parametors que el me lee,

@@ -1,15 +1,6 @@
-import { CreateUserPage } from "@/features/users";
+import { RouterProvider } from "react-router-dom";
+import router from "@/app/router";
 
-export default function App() { 
-
-    return (
-      <div className="min-h text-center grid grid-cols-1 gap-4">
-
-        <h1 className="text-white text-4xl font-bold bg-fuchsia-900 p-6">
-          Revolteria Dosquebradas
-        </h1>
-
-        <CreateUserPage />
-      </div>
-    )
-};
+export default function App(){
+  return <RouterProvider router={router} />;
+}

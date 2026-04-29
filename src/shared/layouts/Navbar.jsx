@@ -10,7 +10,8 @@ export default function Navbar(){
                     {/* Logo de marca */}
                     <div className="flex items-center">
                         <Link to={"/"} className="text-h1 font-heading">
-                            Rico Programar
+                            Rico Programar  
+                            Rico Programarse
                         </Link>
                     </div>
                 </div>

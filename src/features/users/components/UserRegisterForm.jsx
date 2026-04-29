@@ -1,13 +1,25 @@
 import { useState, useEffect } from "react";
-
-import { getDocumentTypes } from "@/features/users/services/selectService.js"
-
-import { Input, Button,  Select, Checkbox } from "@/shared";
-
+import { getDocumentTypes } from "@/features/users/services/selectService.js";
 import { userSchema } from "../schemas/userSchema";
+// import defaultBackgroundImage from "@/assets/images/bg-4.jpg"; 
+import { Link, useNavigate } from "react-router-dom";
+import { SquareArrowRightEnter, ArrowLeft, Menu } from 'lucide-react';
 
+import { Input, 
+    Button, 
+    DeleteCounter2, 
+    Select , 
+    Checkbox, 
+    IconButton, 
+    Dropdown,
+    DropdownTrigger,
+    DropdownItem,
+    DropdownContent,
+} from "@/shared";
 
 export default function UserRegisterForm() {
+
+    const navigate = useNavigate();
 
     const [documentTypes, setDocumentTypes] = useState([]);
     const [ formData, setFormData ] = useState({
@@ -18,10 +30,11 @@ export default function UserRegisterForm() {
         userDocumentNumber: "",
         userPassword: "",
 
-        //flags booleanos
-        isStaff:false,
-        isActive: true,
-        isSuperUser: false,
+        // Flags booleans
+        isStaff : false,
+        isActive : true,
+        isSuperUser : false,
+
 
     });
 
@@ -41,14 +54,15 @@ export default function UserRegisterForm() {
      */
     const handleChange = (e) => {
         // Se obtiene el nombre del campo y su valor 
-        const { name, value, type, checked } = e.target;
+        const { name, value, type, checked} = e.target;
 
         setFormData((prev) => ({
             // Se copian los valores anteriores del estado
             ...prev,
 
             // Se actualiza unicamente lo que cambio
-            [name]: type === "checkbox" ? checked : value,
+            [name] : type === "checkbox" ? checked : value,
+
         }));
     };
 
@@ -90,7 +104,7 @@ export default function UserRegisterForm() {
         <div>
 
 
-            <h1 className=" text-text-primary text-2xl mb-6">
+            <h1 className=" text-text-primary text-2xl mb-6 text-center mt-6">
               Registro de usuario 
             </h1>
 
@@ -99,7 +113,7 @@ export default function UserRegisterForm() {
                 onSubmit ={handleSubmit}>
                 
               {/**Inputs */}
-              <div className="grid grid-cols-2 my-0 mx-auto gap-6">
+              <div className="grid grid-cols-2 my-0 mx-auto gap-6 border p-[48px] rounded-[6px]">
                  <Input
                     label="Nombre"
                     name = "userName"
@@ -163,29 +177,29 @@ export default function UserRegisterForm() {
                     error = {errors.userPassword}
                 />
 
-                <Checkbox
-                    id='isStaff'
-                    name='isStaff'
-                    label='Es staff'
-                    checked={formData.isStaff}
-                    onChange={handleChange}
-                />
+                <Checkbox 
+                    id = "isStaff"
+                    name = "isStaff"
+                    label = "Es administrador"
+                    checked = {formData.isStaff}
+                    onChange = {handleChange}
+                    />
+                <Checkbox 
+                    id = "isActive"
+                    name = "isActive"
+                    label = "Activo"
+                    checked = {formData.isActive}
+                    onChange = {handleChange}
+                    />
+                <Checkbox 
+                    id = "isSuperUser"
+                    name = "isSuperUser"
+                    label = "Super Usuario"
+                    checked = {formData.isSuperUser}
+                    onChange = {handleChange}
+                    />
 
-                <Checkbox
-                    id='isActive'
-                    name='isActive'
-                    label='Es active'
-                    checked={formData.isActive}
-                    onChange={handleChange}
-                />
-
-                <Checkbox
-                    id='isSuperUser'
-                    name='isSuperUser'
-                    label='Es superuser'
-                    checked={formData.isSuperUser}
-                    onChange={handleChange}
-                />
+               
 
 
                 {/* Actions */}
@@ -193,6 +207,9 @@ export default function UserRegisterForm() {
                     <Button
                         variant="secondary"
                         size="sm"
+                        
+                        onClick={() => navigate (-1)}
+                        
                     >
                         Cancelar
                     </Button>
@@ -205,18 +222,42 @@ export default function UserRegisterForm() {
                     </Button>
                 </div>
 
+                {/* Icon Button */}
+                {/* <Link to="/dashboard">
+                    <IconButton variant="ghost">   
+                        <SquareArrowRightEnter />
+                    </IconButton>
+                </Link>
+
+                <Link>
+                    <ArrowLeft /> 
+                </Link> */}
+
+                  {/*   ============ Dropdown ============= */}
+                    <div className="p-10 text-inverse">
+                        <Dropdown>
+                            <DropdownTrigger>
+                                <IconButton ariaLabel = "Menu de usuario">
+                                    <Menu />
+                                </IconButton>
+                            </DropdownTrigger>
+
+                            <DropdownContent className="right-0 w-48">
+                                <DropdownItem>
+                                    <Link to ="/auth" className="block w-full">
+                                        Autenticacion
+                                    </Link>
+                                </DropdownItem>
+                                <DropdownItem>
+                                    <Link to ="/dashboard" className="block w-full">
+                                        Panel de control
+                                    </Link>
+                                </DropdownItem>
+                            </DropdownContent>
+                        </Dropdown>
+                    </div>
               </div>
-               
-
-
             </form>
-
-            {/* <DeleteCounter/>
-            <DeleteEffect/> */}
-            {/* <DeleteCounter2/> */}
         </div>
     );
 }
-
-
-//primero lo creo en shared componentes, luego le coloco unos parametors que el me lee,

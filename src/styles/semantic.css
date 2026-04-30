@@ -40,7 +40,7 @@
 
     /* TYPOGRAPHY */
 
-    --semantic-font-size-display: var(--fs-xxl) /* Texto de alto impacto, protagonista */
+    --semantic-font-size-display: var(--fs-xxl); /* Texto de alto impacto, protagonista */
     --semantic-font-size-h1: var(--fs-lg);
     --semantic-font-size-h2: var(--fs-md);
     --semantic-font-size-h3: var(--fs-sm);

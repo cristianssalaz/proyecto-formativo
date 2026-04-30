@@ -38,6 +38,7 @@
 
     /* TYPOGRAPHY */
 
+    --big-text: var(--fs-xxxxl);
     --text-display: var(--semantic-font-size-display);
     --text-h1: var(--semantic-font-size-h1);
     --text-h2: var(--semantic-font-size-h2);

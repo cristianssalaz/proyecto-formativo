@@ -17,8 +17,16 @@ import { Input,
     DropdownContent,
 } from "@/shared";
 
-export default function UserRegisterForm() {
+export default function UserRegisterForm(
+    backgroundImage = null,
+    nextTo = "/dashboard",
+    cancelTo="/",
+    showBackButton = false,
+    backTo = "/auth",
 
+
+) {
+    
     const navigate = useNavigate();
 
     const [documentTypes, setDocumentTypes] = useState([]);
@@ -29,21 +37,16 @@ export default function UserRegisterForm() {
         userDocumentType: "",
         userDocumentNumber: "",
         userPassword: "",
-
         // Flags booleans
         isStaff : false,
         isActive : true,
         isSuperUser : false,
-
-
     });
 
     const [errors, setErrors ] = useState([]);
 
     useEffect (() => {
-
         getDocumentTypes().then(setDocumentTypes)
-
     },[]);
 
     // =================
@@ -102,8 +105,6 @@ export default function UserRegisterForm() {
     };
     return (
         <div>
-
-
             <h1 className=" text-text-primary text-2xl mb-6 text-center mt-6">
               Registro de usuario 
             </h1>
@@ -120,10 +121,9 @@ export default function UserRegisterForm() {
                     placeholder="Ingrese su nombre"
                     value = {formData.userName}
                     onChange={handleChange}
-                    error = {errors.userName}
-
-                  
+                    error = {errors.userName}                
                     />
+
                  <Input
                     label="Correo"
                     name = "userEmail"
@@ -131,9 +131,7 @@ export default function UserRegisterForm() {
                     placeholder="Ingrese su correo"
                     value = {formData.userEmail}
                     onChange={handleChange}
-                    error = {errors.userEmail}
-
-                  
+                    error = {errors.userEmail}                
                     />
 
                 <Input
@@ -146,8 +144,7 @@ export default function UserRegisterForm() {
                     error = {errors.userPhone}
                 />
 
-
-                <Select
+                <Select className=""
                     label = "Tipo de Documento"
                     name = "userDocumentType"
                     options = {documentTypes}
@@ -155,8 +152,6 @@ export default function UserRegisterForm() {
                     onChange={handleChange}
                     error = {errors.userDocumentType}
                 />
-
-
 
                 <Input
                     label="Numero de documento"
@@ -176,7 +171,6 @@ export default function UserRegisterForm() {
                     onChange={handleChange}
                     error = {errors.userPassword}
                 />
-
                 <Checkbox 
                     id = "isStaff"
                     name = "isStaff"
@@ -199,39 +193,23 @@ export default function UserRegisterForm() {
                     onChange = {handleChange}
                     />
 
-               
-
-
                 {/* Actions */}
                 <div className="flex items-end  justify-end gap-6">
                     <Button
                         variant="secondary"
-                        size="sm"
-                        
-                        onClick={() => navigate (-1)}
-                        
+                        size="sm"                    
+                        onClick={() => navigate (-1)}                      
                     >
                         Cancelar
                     </Button>
 
                     <Button
                         variant="primary"
-                        size="md"
+                        size="sm"
                     >
                         Guardar
                     </Button>
                 </div>
-
-                {/* Icon Button */}
-                {/* <Link to="/dashboard">
-                    <IconButton variant="ghost">   
-                        <SquareArrowRightEnter />
-                    </IconButton>
-                </Link>
-
-                <Link>
-                    <ArrowLeft /> 
-                </Link> */}
 
                   {/*   ============ Dropdown ============= */}
                     <div className="p-10 text-inverse">
@@ -245,7 +223,7 @@ export default function UserRegisterForm() {
                             <DropdownContent className="right-0 w-48">
                                 <DropdownItem>
                                     <Link to ="/auth" className="block w-full">
-                                        Autenticacion
+                                        Cerrar session
                                     </Link>
                                 </DropdownItem>
                                 <DropdownItem>
@@ -256,6 +234,7 @@ export default function UserRegisterForm() {
                             </DropdownContent>
                         </Dropdown>
                     </div>
+
               </div>
             </form>
         </div>

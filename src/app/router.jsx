@@ -3,6 +3,8 @@ import {
     AuthLayout,
     DashboardLayout
 } from "@/shared";
+import { Login } from "@/features/auth";
+import { CreateUserPage } from "@/features/users";
 
 const router = createBrowserRouter([
     {
@@ -12,21 +14,26 @@ const router = createBrowserRouter([
     {
         path: "/auth",
         element: <AuthLayout />,
-        children: [{ index: true, element: <h1> Inicio Auth </h1> }],
-        
+        children: [{ index: true}],        
     },
     {
-        path: "dashboard",
+        path: "/dashboard",
         element: <DashboardLayout />,
-        children: [
+        children: [           
+               { index: true, element: <CreateUserPage /> },
+               { 
+                    path: "auth", 
+                    element: (
+                        <div className="flex min-h[calc(100vh-4rem)] items-center justify-center p-6">
+                            <Login nextTo="/dashboard" cancelTo="/dashboard"/>  
+                        </div>
+                    )
             
-               { index: true, element: <h1>Inicio Dashboard</h1> },
-               { path: "contacto", element: <h1>Contacto</h1> },
-               { path: "usuarios", element: <h1>Usuarios</h1> },
-               { path: "productos", element: <h1>Productos</h1> },
-        
+                },
+                      
         ],
-    },
+    }
+    
 ]);
 
 export default router;

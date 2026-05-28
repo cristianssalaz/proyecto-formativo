@@ -1,0 +1,65 @@
+:root {
+    /*========================= LIGHT THEME=====================*/
+
+    /*=======BRAND===========*/
+    --semantic-brand: var(--primary-800);
+    --semantic-brand-hover: var(--primary-950);
+    /*generalmente es de un tono mas alto*/
+    --semantic-brand-soft: var(--primary-200);
+    --semantic-brand-soft-hover: var(--primary-350);
+
+    /*=====================BACKGROUND================*/
+    --semantic-background: var(--white);
+
+    --semantic-surface: var(--gray-200);/*fondo de modales, cards containers*/
+
+    --semantic-surface-muted: var(--gray-400);/*Zona secundarias con menos superficie importancia*/
+
+    --semantic-background-inverse: var(--black);
+
+    /*=======================TEXT=======================*/
+    --semantic-text-primary: var(--gray-900);/*Color principal de lecturas, titulos, textos baseadocumentos*/
+    --semantic-text-secondary: var(--color-gray-700); /*textos menos dominantes*/
+    --semantic-text-muted: var(--color-gray-500); /*texto desabilitado por ejemplo */
+    --semantic-text-secondary: var(--color-white); /*texto invertido*/
+
+
+    /*BORDER*/
+    --semantic-border: var(--gray-400);/*Border principal de todos los componentes*/
+    --semantic-text-inverse: var(--gray-700);/*Bordes mas furtes */
+
+    /*FOCUS*/
+    --semantic-focus-ring: var(--primary-700);
+    --semantic-focus-border: var(--primary-500);
+
+    /*STATE*/
+
+    --semantic-success: var(--primary-950);
+    --semantic-warning: var(--color-tertiary-950); 
+    --semantic-error: var(--color-secondary-950);
+    
+    /*TYPOGRAPHY*/
+
+    --semantic-font-size-display: var(--fs-xxl);/*texto de alto impacto, texto protagonista, hero, numeros grandes*/
+    --semantic-font-size-h1: var(--fs-md);
+    --semantic-font-size-h2: var(--fs-md);
+    --semantic-font-size-h3: var(--fs-sm);
+    --semantic-font-size-body: var(--fs-xs);
+    --semantic-font-size-medium: var(--fs-xxs);
+    --semantic-font-size-small: var(--fs-xxxs);
+    --semantic-font-size-caption: var(--fs-xxxxs);/*Caption es texto auxiliar muy pequeño*/
+
+    /*FONT WEIGHT*/
+    --semantic-font-weight-heading: var(--font-weight-bold);
+    --semantic-font-weight-body: var(--font-weight-regular); 
+    --semantic-font-weight-label: var(--font-weight-bold);
+
+
+    
+
+
+    
+
+
+    
+}   
